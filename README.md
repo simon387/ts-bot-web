@@ -1,7 +1,7 @@
 # ts-bot-web
 web version of my ts bot
 
-##License
+## License
 
 99% source code copyed from script-tutorial
 
