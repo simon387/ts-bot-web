@@ -97,7 +97,7 @@ jQuery(document).ready(function () {
 	$('.pl').click(function (e) {
 		e.preventDefault();
 
-		$('.playlist').fadeIn(300);
+		$('.playlist').fadeToggle(300);
 	});
 
 	// playlist elements - click
