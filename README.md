@@ -1,5 +1,10 @@
 # ts-bot-web
+
 web version of my ts bot
+
+## Version
+
+1.0.0
 
 ## License
 
