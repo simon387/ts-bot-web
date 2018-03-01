@@ -4,7 +4,7 @@ web version of my ts bot
 
 ## Version
 
-1.0.0
+1.0.1
 
 ## License
 
