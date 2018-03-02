@@ -8,6 +8,8 @@ web version of my ts bot
 
 ## License
 
+MIT License
+
 99% source code copyed from script-tutorial
 
 http://www.script-tutorials.com/terms-of-use/
