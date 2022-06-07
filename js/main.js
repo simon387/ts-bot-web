@@ -4,7 +4,7 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2012, Script Tutorials
  * http://www.script-tutorials.com/
  */
@@ -24,7 +24,7 @@ jQuery(document).ready(function () {
 
 		$('.player .title').text(title);
 		$('.player .artist').text(artist);
-		$('.player .cover').css('background-image', 'url(data/' + cover + ')');;
+		$('.player .cover').css('background-image', 'url(data/' + cover + ')');
 
 		song = new Audio('data/' + url);
 
@@ -119,11 +119,13 @@ jQuery(document).ready(function () {
 		min: 1,
 		max: 100,
 		value: 80,
-		start: function (event, ui) {},
+		start: function (event, ui) {
+		},
 		slide: function (event, ui) {
 			song.volume = ui.value / 100;
 		},
-		stop: function (event, ui) {},
+		stop: function (event, ui) {
+		},
 	});
 
 	// empty tracker slider
@@ -131,10 +133,12 @@ jQuery(document).ready(function () {
 		range: 'min',
 		min: 0,
 		max: 10,
-		start: function (event, ui) {},
+		start: function (event, ui) {
+		},
 		slide: function (event, ui) {
 			song.currentTime = ui.value;
 		},
-		stop: function (event, ui) {}
+		stop: function (event, ui) {
+		}
 	});
 });
