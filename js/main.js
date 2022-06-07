@@ -10,16 +10,17 @@
  */
 jQuery(document).ready(function () {
 
+	$('.playlist').fadeToggle(300);
 	// inner variables
-	var song;
-	var tracker = $('.tracker');
-	var volume = $('.volume');
+	let song;
+	const tracker = $('.tracker');
+	const volume = $('.volume');
 
 	function initAudio(elem) {
-		var url = elem.attr('audiourl');
-		var title = elem.text();
-		var cover = elem.attr('cover');
-		var artist = elem.attr('artist');
+		const url = elem.attr('audiourl');
+		const title = elem.text();
+		const cover = elem.attr('cover');
+		const artist = elem.attr('artist');
 
 		$('.player .title').text(title);
 		$('.player .artist').text(artist);
@@ -29,7 +30,7 @@ jQuery(document).ready(function () {
 
 		// timeupdate event listener
 		song.addEventListener('timeupdate', function () {
-			var curtime = parseInt(song.currentTime, 10);
+			const curtime = parseInt(song.currentTime, 10);
 			tracker.slider('value', curtime);
 		});
 
@@ -73,7 +74,7 @@ jQuery(document).ready(function () {
 
 		stopAudio();
 
-		var next = $('.playlist li.active').next();
+		let next = $('.playlist li.active').next();
 		if (next.length == 0) {
 			next = $('.playlist li:first-child');
 		}
@@ -86,7 +87,7 @@ jQuery(document).ready(function () {
 
 		stopAudio();
 
-		var prev = $('.playlist li.active').prev();
+		let prev = $('.playlist li.active').prev();
 		if (prev.length == 0) {
 			prev = $('.playlist li:last-child');
 		}
@@ -96,7 +97,6 @@ jQuery(document).ready(function () {
 	// show playlist
 	$('.pl').click(function (e) {
 		e.preventDefault();
-
 		$('.playlist').fadeToggle(300);
 	});
 
