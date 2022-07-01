@@ -1,3 +1,6 @@
+Version 1.0.4
+- added venerdi di albe
+
 Version 1.0.3
 - added dipre taunts
 
