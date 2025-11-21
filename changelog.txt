@@ -1,3 +1,6 @@
+Version 1.0.8
+- update CI/CD script
+
 Version 1.0.7
 - added bs -> breaking news radio 24 la zanzara
 
