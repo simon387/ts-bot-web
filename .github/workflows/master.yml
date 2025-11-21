@@ -23,5 +23,3 @@ jobs:
           server-dir: ts-bot-web/
           timeout: 300000
           log-level: verbose
-          prefer-ipv4: true
-          passive: true
