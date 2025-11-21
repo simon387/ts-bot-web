@@ -1,3 +1,6 @@
+Version 1.0.7
+- added bs -> breaking news radio 24 la zanzara
+
 Version 1.0.6
 - added vamos.mp3
 
