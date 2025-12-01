@@ -1,7 +1,7 @@
 on:
   push:
     branches: [ master ]
-name: 🚀 Deploy website on push with minify
+name: 🚀 Deploy website on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -10,15 +10,16 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-#      - name: Minify Action
-#        uses: anthonyftwang/minify-action@v1.0.1
-
-      - name: 📂 Sync files
+      - name: 📂 Sync files (Attempt 1)
+        id: deploy
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
+          protocol: ftp
+          port: 21
           exclude: |
             **/.git/**
             **/.github/**
@@ -32,4 +33,51 @@ jobs:
           server-dir: ts-bot-web/
           timeout: 300000
           log-level: verbose
-          protocol: ftp  # o 'ftps' se il server supporta SSL/TLS
+
+      - name: 📂 Sync files (Attempt 2)
+        if: steps.deploy.outcome == 'failure'
+        id: deploy2
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.ftp_server }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          protocol: ftp
+          port: 21
+          exclude: |
+            **/.git/**
+            **/.github/**
+            **/node_modules/**
+            deploy_localhost.*
+            LICENSE
+            README.md
+            **/docs/**
+            **/requests/**
+            **/dumps/**
+          server-dir: ts-bot-web/
+          timeout: 300000
+          log-level: verbose
+
+      - name: 📂 Sync files (Attempt 3 - Final)
+        if: steps.deploy2.outcome == 'failure'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.ftp_server }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          protocol: ftp
+          port: 21
+          exclude: |
+            **/.git/**
+            **/.github/**
+            **/node_modules/**
+            deploy_localhost.*
+            LICENSE
+            README.md
+            **/docs/**
+            **/requests/**
+            **/dumps/**
+          server-dir: ts-bot-web/
+          timeout: 300000
+          log-level: verbose
