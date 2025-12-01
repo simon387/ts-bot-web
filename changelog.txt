@@ -1,3 +1,6 @@
+Version 1.0.15
+- updated workflow
+
 Version 1.0.14
 - added more taunts/meme
 - updated ignore list on workflows

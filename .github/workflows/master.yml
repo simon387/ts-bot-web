@@ -32,3 +32,4 @@ jobs:
           server-dir: ts-bot-web/
           timeout: 300000
           log-level: verbose
+          protocol: ftp  # o 'ftps' se il server supporta SSL/TLS
