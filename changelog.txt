@@ -1,3 +1,6 @@
+Version 1.0.19
+- added taunts/meme
+
 Version 1.0.18
 - added taunts/meme
 
